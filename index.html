@@ -15,18 +15,14 @@
 
         /* --- LOADER --- */
         #loader { position: fixed; inset: 0; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10000; }
-        .loading-logo-custom { width: 450px; filter: drop-shadow(0 0 15px #ffffff); animation: staticGlow 2s infinite alternate ease-in-out; }
-        .loader-line-container { width: 250px; height: 3px; background: rgba(255,255,255,0.1); margin-top: 20px; border-radius: 10px; overflow: hidden; position: relative; }
-        .loader-line-fill { position: absolute; height: 100%; width: 0%; background: #3b82f6; box-shadow: 0 0 10px #3b82f6; animation: progressFill 1.8s ease-in-out forwards; }
-
-        @keyframes progressFill { 0% { width: 0%; } 100% { width: 100%; } }
+        .loading-logo-custom { width: 350px; filter: drop-shadow(0 0 15px #ffffff); animation: staticGlow 2s infinite alternate ease-in-out; }
         @keyframes staticGlow { 0% { filter: drop-shadow(0 0 10px #ffffff); } 100% { filter: drop-shadow(0 0 25px #3b82f6); } }
 
         /* --- HOME SECTION --- */
         #home-section {
             height: 100vh; width: 100%; display: flex; flex-direction: column;
             justify-content: space-between; align-items: center; position: relative;
-            background: #000; overflow: hidden; padding: 20px 0;
+            background: #000; overflow: hidden; padding: 15px 0;
         }
 
         .bg-image-fix {
@@ -35,59 +31,66 @@
             z-index: 1;
         }
 
-        .top-nav { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; z-index: 1000; position: relative; }
-        .nav-logo { width: 170px; }
+        .top-nav { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; z-index: 1000; position: relative; }
+        .nav-logo { width: 140px; }
 
-        /* ANIMACIONET PER IKONAT */
         @keyframes glow-blue { 0% { color: #fff; } 100% { color: #3b82f6; text-shadow: 0 0 10px #3b82f6; } }
-        @keyframes glow-gold { 0% { color: #fff; transform: scale(1); } 100% { color: #d4af37; text-shadow: 0 0 15px #d4af37; transform: scale(1.05); } }
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0px rgba(212, 175, 55, 0.7); } 100% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } }
 
-        .wb-glow-icon { animation: glow-blue 2s infinite alternate; cursor: pointer; }
+        .wb-glow-icon { animation: glow-blue 2s infinite alternate; }
         
-        /* BOUTONI REZERVO HOTELIN */
         .hotel-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid #d4af37;
-            padding: 6px 12px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #d4af37;
-            animation: glow-gold 1.5s infinite alternate;
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+            background: #d4af37; color: #000; border-radius: 50px; font-weight: 900;
+            text-transform: uppercase; animation: pulse-gold 2s infinite; transition: 0.3s;
         }
-        .hotel-btn:hover { background: #d4af37; color: #000; }
+
+        @media (min-width: 768px) {
+            .hotel-btn { padding: 8px 18px; font-size: 11px; gap: 8px; }
+            .nav-logo { width: 180px; }
+        }
+
+        @media (max-width: 767px) {
+            .hotel-btn { width: 42px; height: 42px; font-size: 18px; }
+            .hotel-btn span { display: none; }
+            .nav-logo { width: 115px; }
+        }
 
         .shimmer-text {
-            font-family: 'Orbitron', sans-serif; font-size: clamp(1.6rem, 7vw, 4rem); font-weight: 900;
+            font-family: 'Orbitron', sans-serif; font-size: clamp(1.4rem, 6vw, 4rem); font-weight: 900;
             background: linear-gradient(90deg, #333 0%, #333 45%, #ff0000 50%, #fff 51%, #ff0000 52%, #333 55%, #333 100%);
             background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: laser-cut 4s linear infinite; z-index: 10;
-            margin-top: 10px;
+            animation: laser-animation 4s linear infinite; z-index: 10;
         }
-        @keyframes laser-cut { 0% { background-position: 100% 0%; } 100% { background-position: 0% 0%; } }
+        @keyframes laser-animation { 0% { background-position: 100% 0%; } 100% { background-position: 0% 0%; } }
 
         .btn-main { 
             background: rgba(0,0,0,0.8); color: #fff; border: 1px solid #fff;
-            padding: 12px 50px; border-radius: 5px; font-weight: 800; text-transform: uppercase; 
-            cursor: pointer; transition: 0.3s; z-index: 10; margin-bottom: 30px;
+            padding: 12px 40px; border-radius: 5px; font-weight: 800; text-transform: uppercase; 
+            cursor: pointer; transition: 0.3s; z-index: 10; margin-bottom: 30px; font-size: 14px;
         }
-        .btn-main:hover { background: #fff; color: #000; }
 
         #catalog-section { display: none; background: #050505; min-height: 100vh; padding: 40px 15px; }
-        .car-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 20px; padding: 20px; }
-
-        @media (max-width: 800px) {
-            .loading-logo-custom { width: 320px; }
-            .bg-image-fix { background-position: center 55%; }
-            .shimmer-text { margin-top: 0px; font-size: 1.8rem; }
-            .top-nav { padding: 10px 20px; }
-            .nav-logo { width: 110px; }
-            .btn-main { margin-bottom: 25px; }
+        .car-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 20px; padding: 15px; transition: 0.3s; overflow: hidden; }
+        .car-card:hover { border-color: #3b82f6; }
+        
+        /* RREGULLIMI I FOTOS QE TE MOS PRITET */
+        .car-img-container {
+            width: 100%;
+            height: 200px;
+            background: #151515; /* Sfond pak me i hapur se karta */
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .car-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* Kjo ben qe foto te shihet e plote */
+            padding: 5px;
         }
     </style>
 </head>
@@ -95,76 +98,91 @@
 
     <div id="loader">
         <img src="https://i.ibb.co/jkFMvhVx/freepik-gradient-rs-detailing-mechanic-logo-20260122045428-MGwz.png" class="loading-logo-custom">
-        <div class="loader-line-container">
-            <div class="loader-line-fill"></div>
-        </div>
     </div>
 
     <section id="home-section">
         <div class="bg-image-fix"></div>
-        
         <div class="top-nav">
-            <div class="flex gap-3 text-lg md:gap-4 md:text-xl">
+            <div class="flex gap-3 text-lg">
                 <a href="https://www.facebook.com/share/1JJnmtNAH1/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f wb-glow-icon"></i></a>
                 <a href="https://www.instagram.com/impexcar_rental/?hl=en" target="_blank"><i class="fab fa-instagram wb-glow-icon"></i></a>
                 <a href="https://www.tiktok.com/@impexcar_rental?_r=1&_t=ZS-93HDlxhBSUa" target="_blank"><i class="fab fa-tiktok wb-glow-icon"></i></a>
             </div>
-            
             <img src="https://i.ibb.co/x8cMJD7q/356054339-1712077369242022-5756446346405496999-n-removebg-preview.png" class="nav-logo">
-            
             <a href="https://impex-car-rental.github.io/HOTEL-IMPEX/" class="hotel-btn">
-                <i class="fas fa-bed"></i>
-                <span class="hidden md:inline">Rezervo Hotelin</span>
+                <i class="fas fa-hotel"></i>
+                <span>Hotel</span>
             </a>
         </div>
-
         <h1 class="shimmer-text">IMPEX-CAR-RENTAL</h1>
-
         <button onclick="openCatalog()" class="btn-main">REZERVO RENTA CAR</button>
     </section>
 
     <section id="catalog-section">
         <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-10 border-b border-gray-800 pb-5 text-white">
-                <h2 class="text-xl font-bold font-['Orbitron']">KATALOGU</h2>
-                <button onclick="closeCatalog()" class="bg-white/10 px-4 py-2 rounded-full border border-white/20 text-[10px]">MBYLL [X]</button>
+            <div class="flex justify-between items-center mb-10 border-b border-gray-800 pb-5">
+                <h2 class="text-xl font-bold font-['Orbitron'] tracking-widest text-white">KATALOGU</h2>
+                <button onclick="closeCatalog()" class="bg-white/10 px-4 py-2 rounded-full border border-white/20 text-[10px] text-white uppercase">Mbyll [X]</button>
             </div>
-            <div id="car-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            
+            <div id="car-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
         </div>
     </section>
 
     <script>
         const phoneNum = "38348771717";
-        const carData = ["Audi A6 Luxury", "Golf 7.5 R-Line", "Dacia Stepway 2024", "Audi Q5 Quattro", "Audi A8 L", "Golf 6 GTD", "VW Tiguan", "Mercedes E-Class", "BMW 520d", "Audi A3 Sportback"];
+        const carPhotos = [
+            "https://i.ibb.co/HDZcpYy9/photo-5447299608863248583-y.jpg",
+            "https://i.ibb.co/cKnHpVbS/photo-5447299608863248584-w.jpg",
+            "https://i.ibb.co/bM6TkvcH/photo-5447299608863248585-w.jpg",
+            "https://i.ibb.co/sZXFtWT/photo-5447299608863248587-w.jpg",
+            "https://i.ibb.co/WWPxbRKj/photo-5447299608863248588-w.jpg",
+            "https://i.ibb.co/spK98XdP/photo-5447299608863248589-y.jpg",
+            "https://i.ibb.co/3YfYjQMg/photo-5447299608863248590-y.jpg",
+            "https://i.ibb.co/9kr1SbSN/photo-5447299608863248591-w.jpg",
+            "https://i.ibb.co/nMB9pL7K/photo-5447299608863248592-y.jpg",
+            "https://i.ibb.co/rfZ12ZP0/photo-5447299608863248594-w.jpg",
+            "https://i.ibb.co/Swxy9Vsg/photo-5447299608863248595-w.jpg",
+            "https://i.ibb.co/nNz5yjFc/photo-5447299608863248596-w.jpg",
+            "https://i.ibb.co/RpHczZD7/photo-5447299608863248597-w.jpg",
+            "https://i.ibb.co/VYFsBVVP/photo-5447299608863248586-y.jpg",
+            "https://i.ibb.co/VWyKv235/photo-5447299608863248593-y.jpg"
+        ];
 
         const carGrid = document.getElementById('car-grid');
-        carData.forEach(name => {
-            const msg = encodeURIComponent(`Përshëndetje IMPEX, dua të rezervoj: ${name}`);
+        
+        carPhotos.forEach((imgUrl, index) => {
+            const carName = "IMPEX RENTA CAR #" + (index + 1);
+            const msg = encodeURIComponent(`Përshëndetje IMPEX, dua të rezervoj makinën: ${carName}`);
+            
             carGrid.innerHTML += `
-                <div class="car-card animate__animated animate__fadeIn">
-                    <img src="https://uploads.audi-mediacenter.com/system/production/cars/1018/photos/f959a8d494e0ca4fd12a890e7dafd22c4560fb76/web_1440_A6_Limousine.png" class="w-full h-32 object-contain mb-3">
-                    <h3 class="text-lg font-bold text-center text-white">${name}</h3>
-                    <p class="text-[9px] text-gray-500 text-center uppercase">Eksperiencë Premium & Konfort</p>
+                <div class="car-card animate__animated animate__fadeInUp">
+                    <div class="car-img-container">
+                        <img src="${imgUrl}" class="car-img" alt="Car Impex">
+                    </div>
+                    <h3 class="text-lg font-bold text-center text-white mb-1">${carName}</h3>
+                    <p class="text-[10px] text-blue-500 text-center uppercase tracking-widest font-bold mb-4">Premium Selection</p>
                     
-                    <div class="mt-4 border-t border-white/10 pt-4 space-y-2">
-                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> KOMODITET MAX</div>
-                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> SIGURI NE RRUGE</div>
-                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> ASISTENCE 24/7</div>
-                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> KILOMETRA TE LIMITUARA</div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="text-[9px] bg-white/5 p-2 rounded border border-white/10 text-gray-300 flex items-center gap-2"><i class="fas fa-gas-pump text-blue-500"></i> DIESEL / PETROL</div>
+                        <div class="text-[9px] bg-white/5 p-2 rounded border border-white/10 text-gray-300 flex items-center gap-2"><i class="fas fa-cog text-blue-500"></i> AUTOMATIC</div>
+                        <div class="text-[9px] bg-white/5 p-2 rounded border border-white/10 text-gray-300 flex items-center gap-2"><i class="fas fa-shield-alt text-blue-500"></i> FULL CASCO</div>
+                        <div class="text-[9px] bg-white/5 p-2 rounded border border-white/10 text-gray-300 flex items-center gap-2"><i class="fas fa-headset text-blue-500"></i> 24/7 SUPPORT</div>
                     </div>
 
-                    <div class="flex gap-2 mt-6">
-                        <a href="https://wa.me/${phoneNum}?text=${msg}" target="_blank" class="flex-1 bg-green-600/20 text-green-500 py-3 rounded-xl border border-green-600/30 text-center text-xl hover:bg-green-600 hover:text-white transition">
+                    <div class="flex gap-2">
+                        <a href="https://wa.me/${phoneNum}?text=${msg}" target="_blank" class="flex-1 bg-green-600/10 text-green-500 py-3 rounded-xl border border-green-600/30 text-center text-xl hover:bg-green-600 hover:text-white transition">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://msng.link/vi/${phoneNum}" target="_blank" class="flex-1 bg-purple-600/20 text-purple-500 py-3 rounded-xl border border-purple-600/30 text-center text-xl hover:bg-purple-600 hover:text-white transition">
+                        <a href="viber://chat?number=${phoneNum}" target="_blank" class="flex-1 bg-purple-600/10 text-purple-500 py-3 rounded-xl border border-purple-600/30 text-center text-xl hover:bg-purple-600 hover:text-white transition">
                             <i class="fab fa-viber"></i>
                         </a>
                     </div>
                 </div>`;
         });
 
-        window.onload = () => setTimeout(() => document.getElementById('loader').style.display = 'none', 2000);
+        window.onload = () => setTimeout(() => document.getElementById('loader').style.display = 'none', 1500);
         function openCatalog() { document.getElementById('home-section').style.display = 'none'; document.getElementById('catalog-section').style.display = 'block'; window.scrollTo(0,0); }
         function closeCatalog() { document.getElementById('catalog-section').style.display = 'none'; document.getElementById('home-section').style.display = 'flex'; }
     </script>
