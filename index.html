@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPEX-CAR-RENTAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;500;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background: #000; color: white; margin: 0; overflow-x: hidden; }
+
+        /* --- LOADER I ZMADHUAR ME LINE --- */
+        #loader { position: fixed; inset: 0; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10000; }
+        .loading-logo-custom { width: 450px; filter: drop-shadow(0 0 15px #ffffff); animation: staticGlow 2s infinite alternate ease-in-out; }
+
+        .loader-line-container { width: 250px; height: 3px; background: rgba(255,255,255,0.1); margin-top: 20px; border-radius: 10px; overflow: hidden; position: relative; }
+        .loader-line-fill { position: absolute; height: 100%; width: 0%; background: #3b82f6; box-shadow: 0 0 10px #3b82f6; animation: progressFill 1.8s ease-in-out forwards; }
+
+        @keyframes progressFill { 0% { width: 0%; } 100% { width: 100%; } }
+        @keyframes staticGlow { 0% { filter: drop-shadow(0 0 10px #ffffff); } 100% { filter: drop-shadow(0 0 25px #3b82f6); } }
+
+        /* --- HOME SECTION --- */
+        #home-section {
+            height: 100vh; width: 100%; display: flex; flex-direction: column;
+            justify-content: space-between; align-items: center; position: relative;
+            background: #000; overflow: hidden; padding: 20px 0;
+        }
+
+        .bg-image-fix {
+            position: absolute; inset: 0;
+            background: url('https://i.ibb.co/cKV3vj1F/Gemini-Generated-Image-9lsqpt9lsqpt9lsq-1.png') no-repeat center 45% / contain;
+            z-index: 1;
+        }
+
+        .top-nav { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; z-index: 1000; position: relative; }
+        .nav-logo { width: 170px; }
+
+        /* ANIMACIONET E NDRYSHME PER IKONAT */
+        @keyframes glow-blue { 0% { color: #fff; } 100% { color: #3b82f6; text-shadow: 0 0 10px #3b82f6; } }
+        @keyframes glow-green { 0% { color: #fff; } 100% { color: #22c55e; text-shadow: 0 0 15px #22c55e; } }
+
+        .wb-glow-icon { animation: glow-blue 2s infinite alternate; cursor: pointer; }
+        .call-glow-icon { animation: glow-green 2s infinite alternate; cursor: pointer; }
+
+        .shimmer-text {
+            font-family: 'Orbitron', sans-serif; font-size: clamp(1.6rem, 7vw, 4rem); font-weight: 900;
+            background: linear-gradient(90deg, #333 0%, #333 45%, #ff0000 50%, #fff 51%, #ff0000 52%, #333 55%, #333 100%);
+            background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: laser-cut 4s linear infinite; z-index: 10;
+            margin-top: 10px;
+        }
+        @keyframes laser-cut { 0% { background-position: 100% 0%; } 100% { background-position: 0% 0%; } }
+
+        .btn-main { 
+            background: rgba(0,0,0,0.8); color: #fff; border: 1px solid #fff;
+            padding: 12px 50px; border-radius: 5px; font-weight: 800; text-transform: uppercase; 
+            cursor: pointer; transition: 0.3s; z-index: 10; margin-bottom: 30px;
+        }
+        .btn-main:hover { background: #fff; color: #000; }
+
+        #catalog-section { display: none; background: #050505; min-height: 100vh; padding: 40px 15px; }
+        .car-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 20px; padding: 20px; }
+
+        @media (max-width: 800px) {
+            .loading-logo-custom { width: 320px; }
+            .bg-image-fix { background-position: center 55%; }
+            .shimmer-text { margin-top: 0px; font-size: 1.8rem; }
+            .top-nav { padding: 10px 20px; }
+            .nav-logo { width: 130px; } /* Madhesia ne telefon */
+            .btn-main { margin-bottom: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <img src="https://i.ibb.co/jkFMvhVx/freepik-gradient-rs-detailing-mechanic-logo-20260122045428-MGwz.png" class="loading-logo-custom">
+        <div class="loader-line-container">
+            <div class="loader-line-fill"></div>
+        </div>
+    </div>
+
+    <section id="home-section">
+        <div class="bg-image-fix"></div>
+        
+        <div class="top-nav">
+            <div class="flex gap-4 text-xl">
+                <a href="https://www.facebook.com/share/1JJnmtNAH1/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f wb-glow-icon"></i></a>
+                <a href="https://www.instagram.com/impexcar_rental/?hl=en" target="_blank"><i class="fab fa-instagram wb-glow-icon"></i></a>
+                <a href="https://www.tiktok.com/@impexcar_rental?_r=1&_t=ZS-93HDlxhBSUa" target="_blank"><i class="fab fa-tiktok wb-glow-icon"></i></a>
+            </div>
+            <img src="https://i.ibb.co/x8cMJD7q/356054339-1712077369242022-5756446346405496999-n-removebg-preview.png" class="nav-logo">
+            <a href="tel:+38349266077"><i class="fas fa-phone-alt call-glow-icon text-xl"></i></a>
+        </div>
+
+        <h1 class="shimmer-text">IMPEX-CAR-RENTAL</h1>
+
+        <button onclick="openCatalog()" class="btn-main">REZERVO TANI</button>
+    </section>
+
+    <section id="catalog-section">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-10 border-b border-gray-800 pb-5 text-white">
+                <h2 class="text-xl font-bold font-['Orbitron']">KATALOGU</h2>
+                <button onclick="closeCatalog()" class="bg-white/10 px-4 py-2 rounded-full border border-white/20 text-[10px]">MBYLL [X]</button>
+            </div>
+            <div id="car-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+
+    <script>
+        const phoneNum = "38348771717";
+        const carData = ["Audi A6 Luxury", "Golf 7.5 R-Line", "Dacia Stepway 2024", "Audi Q5 Quattro", "Audi A8 L", "Golf 6 GTD", "VW Tiguan", "Mercedes E-Class", "BMW 520d", "Audi A3 Sportback"];
+
+        const carGrid = document.getElementById('car-grid');
+        carData.forEach(name => {
+            const msg = encodeURIComponent(`Përshëndetje IMPEX, dua të rezervoj: ${name}`);
+            carGrid.innerHTML += `
+                <div class="car-card animate__animated animate__fadeIn">
+                    <img src="https://uploads.audi-mediacenter.com/system/production/cars/1018/photos/f959a8d494e0ca4fd12a890e7dafd22c4560fb76/web_1440_A6_Limousine.png" class="w-full h-32 object-contain mb-3">
+                    <h3 class="text-lg font-bold text-center text-white">${name}</h3>
+                    <p class="text-[9px] text-gray-500 text-center uppercase">Eksperiencë Premium & Konfort</p>
+                    
+                    <div class="mt-4 border-t border-white/10 pt-4 space-y-2">
+                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> KOMODITET MAX</div>
+                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> SIGURI NE RRUGE</div>
+                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> ASISTENCE 24/7</div>
+                        <div class="text-[11px] font-bold text-gray-400 flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> KILOMETRA TE LIMITUARA</div>
+                    </div>
+
+                    <div class="flex gap-2 mt-6">
+                        <a href="https://wa.me/${phoneNum}?text=${msg}" target="_blank" class="flex-1 bg-green-600/20 text-green-500 py-3 rounded-xl border border-green-600/30 text-center text-xl hover:bg-green-600 hover:text-white transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://msng.link/vi/${phoneNum}" target="_blank" class="flex-1 bg-purple-600/20 text-purple-500 py-3 rounded-xl border border-purple-600/30 text-center text-xl hover:bg-purple-600 hover:text-white transition">
+                            <i class="fab fa-viber"></i>
+                        </a>
+                    </div>
+                </div>`;
+        });
+
+        window.onload = () => setTimeout(() => document.getElementById('loader').style.display = 'none', 2000);
+        function openCatalog() { document.getElementById('home-section').style.display = 'none'; document.getElementById('catalog-section').style.display = 'block'; window.scrollTo(0,0); }
+        function closeCatalog() { document.getElementById('catalog-section').style.display = 'none'; document.getElementById('home-section').style.display = 'flex'; }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
